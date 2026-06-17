@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.asiyen.app",
+      "sha256_cert_fingerprints": [
+        "AD:E9:8E:03:8E:2B:A0:FC:AC:78:8D:61:A4:A5:4C:DF:1C:B6:76:F9:81:C6:80:8E:22:72:1F:87:24:CA:AE:7E"
+      ]
+    }
+  }
+]
