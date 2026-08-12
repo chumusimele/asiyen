@@ -781,6 +781,20 @@
 
     .footer-legal a:hover { color: var(--light); }
 
+    .qty-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--dark);
+      background: white;
+      color: var(--dark);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s;
+    }
+    .qty-btn:hover { background: var(--off); }
+
     .privacy-page, .sub-page {
       display: none;
       padding: 120px 40px 80px;
@@ -867,6 +881,7 @@
     <li><a href="#how">How it works</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#who">For you</a></li>
+    <li><a href="#" onclick="showOrder(); return false;">Order Stickers</a></li>
     <li><a href="#download" class="nav-cta">Download</a></li>
   </ul>
 </nav>
@@ -1107,6 +1122,7 @@
           <ul>
             <li><a href="#how">How it works</a></li>
             <li><a href="#features">Features</a></li>
+            <li><a href="#" onclick="showOrder(); return false;">Order Stickers by Mail</a></li>
             <li><a href="#download">Download</a></li>
           </ul>
         </div>
@@ -1293,8 +1309,184 @@
   <p>There are no delivery charges for digital services. The price of a sticker is the price quoted by the agent at the point of sale.</p>
 </div>
 
+
+<!-- ORDER STICKERS BY MAIL PAGE -->
+<div class="sub-page" id="orderPage">
+  <a href="#" onclick="showMain(); return false;" style="display:inline-flex;align-items:center;gap:8px;color:var(--dark);text-decoration:none;font-weight:500;margin-bottom:40px;">&larr; Back to Asiyen</a>
+  <h1>Order Stickers by Mail</h1>
+  <p class="privacy-date">For registered Merchants too far from an Asiyen agent to buy in person.</p>
+
+  <p>If there's no Asiyen agent near you yet, you can order your sticker directly and we'll post it to you. You'll need to already have a <strong>Merchant</strong> account in the Asiyen app &mdash; if you don't yet, <a href="#download" onclick="showMain();" style="color:var(--dark);">download the app</a> and register first, then come back here.</p>
+
+  <h2>How it works</h2>
+  <ol style="padding-left: 20px; color: var(--muted); font-size: 16px; line-height: 1.8;">
+    <li>Enter your registered Merchant phone number, shipping address, and how many stickers you'd like.</li>
+    <li>Pay the total shown via PayShap to the number below.</li>
+    <li>Upload a screenshot of the payment as proof, and submit.</li>
+    <li>We confirm your payment, post your sticker(s) via Paxi (7&ndash;9 business days), and send you the tracking number.</li>
+    <li>Once it arrives, we activate your sticker remotely &mdash; no agent visit needed.</li>
+  </ol>
+
+  <h2>1. Your details</h2>
+  <div style="margin-bottom:16px;">
+    <label style="display:block; font-weight:600; font-size:14px; color:var(--ink); margin-bottom:6px;">Registered Merchant phone number</label>
+    <input type="tel" id="orderPhone" placeholder="081 234 5678"
+      style="width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:15px; font-family:'DM Sans',sans-serif;">
+  </div>
+  <div style="margin-bottom:16px;">
+    <label style="display:block; font-weight:600; font-size:14px; color:var(--ink); margin-bottom:6px;">Shipping address</label>
+    <textarea id="orderAddress" rows="3" placeholder="Street address, suburb, town, postal code"
+      style="width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:15px; font-family:'DM Sans',sans-serif; resize:vertical;"></textarea>
+  </div>
+  <div style="margin-bottom:24px;">
+    <label style="display:block; font-weight:600; font-size:14px; color:var(--ink); margin-bottom:6px;">Quantity</label>
+    <div style="display:flex; gap:8px; margin-bottom:10px;">
+      <button type="button" onclick="setOrderQty(1)" class="qty-btn">1 sticker</button>
+      <button type="button" onclick="setOrderQty(5)" class="qty-btn">5-pack</button>
+      <button type="button" onclick="setOrderQty(10)" class="qty-btn">10</button>
+    </div>
+    <input type="number" id="orderQty" min="1" max="50" value="1" oninput="updateOrderPrice()"
+      style="width:120px; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:15px; font-family:'DM Sans',sans-serif;">
+  </div>
+
+  <div style="background: var(--off); border-radius: 16px; padding: 20px; margin-bottom: 32px;">
+    <div style="display:flex; justify-content:space-between; font-size:14px; color:var(--muted); margin-bottom:8px;">
+      <span>Stickers</span><span id="priceStickers">R35.00</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; font-size:14px; color:var(--muted); margin-bottom:8px;">
+      <span>Shipping (Paxi, 7&ndash;9 days)</span><span>R60.00</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; font-weight:700; font-size:18px; color:var(--dark); padding-top:10px; border-top:1px solid var(--border);">
+      <span>Total to pay</span><span id="priceTotal">R95.00</span>
+    </div>
+  </div>
+
+  <h2>2. Pay via PayShap</h2>
+  <div style="background: rgba(231,166,76,0.08); border:1px solid rgba(231,166,76,0.35); border-radius:12px; padding:16px; margin-bottom:24px;">
+    <p style="margin-bottom:0; color: var(--ink);">
+      <!-- TODO: replace with Asiyen's real PayShap-linked number once set up. -->
+      Send the total above via PayShap to: <strong>[PayShap number not yet set up]</strong>
+    </p>
+  </div>
+
+  <h2>3. Proof of payment</h2>
+  <div style="margin-bottom:24px;">
+    <input type="file" id="orderProof" accept="image/*"
+      style="width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:14px; font-family:'DM Sans',sans-serif;">
+    <p style="font-size:13px; color:var(--muted); margin-top:6px;">A screenshot or photo of your PayShap payment confirmation.</p>
+  </div>
+
+  <div id="orderError" style="display:none; color:#c0392b; background:#fdecea; border-radius:10px; padding:12px 14px; margin-bottom:16px; font-size:14px;"></div>
+  <div id="orderSuccess" style="display:none; color:var(--dark); background:rgba(102,187,106,0.12); border-radius:10px; padding:16px; margin-bottom:16px; font-size:14px;"></div>
+
+  <button onclick="submitOrder()" id="orderSubmitBtn" class="btn-primary" style="border:none; cursor:pointer; font-family:'DM Sans',sans-serif;">
+    Submit Order
+  </button>
+
+  <h2 style="margin-top:56px;">Note</h2>
+  <p style="font-size:14px;">By submitting, you confirm the shipping address and phone number are correct. Orders are reviewed manually and revenue is only recognised once your payment is confirmed &mdash; a rejected or unmatched payment will not be charged against your account. See our <a href="#" onclick="showTerms(); return false;" style="color:var(--dark);">Terms &amp; Conditions</a> for full details on stickers and delivery.</p>
+</div>
+
 <script>
-  const SUB_PAGES = ['privacyPage', 'termsPage'];
+
+  // ── ORDER STICKERS BY MAIL ──────────────────────────────────────
+  const SUPABASE_URL = 'https://ngvwcgumvjipquvgijfc.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_IEMupCW8uBFxUPALjaiaXg_CXfjeOwL';
+  const SHIPPING_FEE = 60;
+
+  // Mirrors calculate_sticker_sale_price() server-side: packs of 5 at
+  // R120, remainder as singles at R35. Client-side is display only —
+  // the Edge Function recalculates authoritatively before charging.
+  function calcStickerPrice(qty) {
+    const packs = Math.floor(qty / 5);
+    const remainder = qty % 5;
+    return (packs * 120) + (remainder * 35);
+  }
+
+  function setOrderQty(n) {
+    document.getElementById('orderQty').value = n;
+    updateOrderPrice();
+  }
+
+  function updateOrderPrice() {
+    const qty = Math.max(1, parseInt(document.getElementById('orderQty').value) || 1);
+    const stickerPrice = calcStickerPrice(qty);
+    document.getElementById('priceStickers').textContent = `R${stickerPrice.toFixed(2)}`;
+    document.getElementById('priceTotal').textContent = `R${(stickerPrice + SHIPPING_FEE).toFixed(2)}`;
+  }
+
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function submitOrder() {
+    const phone = document.getElementById('orderPhone').value.trim();
+    const address = document.getElementById('orderAddress').value.trim();
+    const qty = parseInt(document.getElementById('orderQty').value) || 0;
+    const fileInput = document.getElementById('orderProof');
+    const errorEl = document.getElementById('orderError');
+    const successEl = document.getElementById('orderSuccess');
+    const btn = document.getElementById('orderSubmitBtn');
+
+    errorEl.style.display = 'none';
+    successEl.style.display = 'none';
+
+    if (!phone || !address || qty < 1 || !fileInput.files[0]) {
+      errorEl.textContent = 'Please fill in your phone number, address, quantity, and attach proof of payment.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    try {
+      const file = fileInput.files[0];
+      const proofBase64 = await fileToBase64(file);
+
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/submit-mail-order`, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          phone,
+          shipping_address: address,
+          quantity: qty,
+          proof_base64: proofBase64,
+          proof_content_type: file.type || 'image/jpeg'
+        })
+      });
+      const result = await res.json();
+
+      if (!res.ok || result.success !== true) {
+        throw new Error(result.error || 'Something went wrong. Please try again.');
+      }
+
+      successEl.innerHTML = `Order submitted! We'll confirm your payment and be in touch at ${phone}. Total: R${result.total.toFixed(2)}.`;
+      successEl.style.display = 'block';
+      document.getElementById('orderPhone').value = '';
+      document.getElementById('orderAddress').value = '';
+      document.getElementById('orderQty').value = 1;
+      fileInput.value = '';
+      updateOrderPrice();
+    } catch (e) {
+      errorEl.textContent = e.message;
+      errorEl.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Submit Order';
+    }
+  }
+
+  const SUB_PAGES = ['privacyPage', 'termsPage', 'orderPage'];
 
   function showSubPage(id) {
     document.getElementById('mainPage').classList.add('hidden');
@@ -1306,6 +1498,7 @@
 
   function showPrivacy() { showSubPage('privacyPage'); }
   function showTerms() { showSubPage('termsPage'); }
+  function showOrder() { showSubPage('orderPage'); }
 
   function showMain() {
     document.getElementById('mainPage').classList.remove('hidden');
