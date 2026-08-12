@@ -11,6 +11,7 @@
     :root {
       --dark: #1B5E20;
       --light: #66BB6A;
+      --gold: #E7A64C;
       --white: #ffffff;
       --off: #f7faf7;
       --ink: #0f1f10;
@@ -29,7 +30,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -51,8 +51,9 @@
     }
 
     .nav-mark {
-      width: 32px;
-      height: 38px;
+      width: 46px;
+      height: auto;
+      display: block;
     }
 
     .nav-wordmark {
@@ -90,7 +91,6 @@
 
     .nav-cta:hover { background: var(--light); color: var(--dark) !important; }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -117,7 +117,7 @@
       bottom: -100px; left: -100px;
       width: 400px; height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(102,187,106,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(231,166,76,0.10) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -225,7 +225,6 @@
       color: white;
     }
 
-    /* Hero visual — phone mockup */
     .hero-visual {
       display: flex;
       justify-content: center;
@@ -351,7 +350,6 @@
     .phone-tx-amount.neg { color: #e53935; }
     .phone-tx-amount.pos { color: #43a047; }
 
-    /* Floating sticker card */
     .sticker-card {
       position: absolute;
       right: -60px;
@@ -395,7 +393,6 @@
       letter-spacing: 1px;
     }
 
-    /* ── HOW IT WORKS ── */
     .section {
       padding: 100px 40px;
       max-width: 1100px;
@@ -410,6 +407,8 @@
       color: var(--light);
       margin-bottom: 16px;
     }
+
+    .section-tag.gold { color: var(--gold); }
 
     .section-title {
       font-family: 'DM Serif Display', serif;
@@ -440,7 +439,7 @@
     .step-number {
       font-family: 'DM Serif Display', serif;
       font-size: 80px;
-      color: var(--border);
+      color: rgba(231,166,76,0.35);
       line-height: 1;
       margin-bottom: -20px;
     }
@@ -469,7 +468,6 @@
       line-height: 1.6;
     }
 
-    /* ── FEATURES ── */
     .features-section {
       background: var(--off);
       padding: 100px 40px;
@@ -497,6 +495,11 @@
     .feature-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 32px rgba(27,94,32,0.1);
+    }
+
+    .feature-card.warm {
+      border-color: rgba(231,166,76,0.4);
+      background: linear-gradient(135deg, rgba(231,166,76,0.05), white 60%);
     }
 
     .feature-card.large {
@@ -548,7 +551,12 @@
       font-weight: 500;
     }
 
-    /* ── FOR WHO ── */
+    .pill.gold {
+      background: rgba(231,166,76,0.15);
+      border: 1px solid rgba(231,166,76,0.35);
+      color: var(--gold);
+    }
+
     .who-section {
       padding: 100px 40px;
       max-width: 1100px;
@@ -627,7 +635,6 @@
       font-weight: 700;
     }
 
-    /* ── DOWNLOAD ── */
     .download-section {
       background: var(--dark);
       padding: 100px 40px;
@@ -643,7 +650,7 @@
       transform: translate(-50%, -50%);
       width: 600px; height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(102,187,106,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(231,166,76,0.10) 0%, transparent 70%);
     }
 
     .download-inner {
@@ -698,7 +705,6 @@
     .store-btn-name { font-size: 16px; font-weight: 600; }
     .store-btn-icon { font-size: 28px; }
 
-    /* ── FOOTER ── */
     footer {
       background: #0a1a0b;
       padding: 60px 40px 40px;
@@ -775,19 +781,18 @@
 
     .footer-legal a:hover { color: var(--light); }
 
-    /* ── PRIVACY PAGE ── */
-    .privacy-page {
+    .privacy-page, .sub-page {
       display: none;
       padding: 120px 40px 80px;
       max-width: 760px;
       margin: 0 auto;
     }
 
-    .privacy-page.active { display: block; }
+    .privacy-page.active, .sub-page.active { display: block; }
     .main-page { display: block; }
     .main-page.hidden { display: none; }
 
-    .privacy-page h1 {
+    .privacy-page h1, .sub-page h1 {
       font-family: 'DM Serif Display', serif;
       font-size: 42px;
       color: var(--ink);
@@ -800,23 +805,22 @@
       margin-bottom: 48px;
     }
 
-    .privacy-page h2 {
+    .privacy-page h2, .sub-page h2 {
       font-family: 'DM Serif Display', serif;
       font-size: 22px;
       color: var(--ink);
       margin: 36px 0 12px;
     }
 
-    .privacy-page p, .privacy-page li {
+    .privacy-page p, .privacy-page li, .sub-page p, .sub-page li {
       font-size: 16px;
       color: var(--muted);
       line-height: 1.8;
       margin-bottom: 12px;
     }
 
-    .privacy-page ul { padding-left: 20px; }
+    .privacy-page ul, .sub-page ul { padding-left: 20px; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
       .nav-links { display: none; }
@@ -836,7 +840,6 @@
       .footer-bottom { flex-direction: column; text-align: center; }
     }
 
-    /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
@@ -851,16 +854,12 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo" onclick="showMain()">
-    <svg class="nav-mark" viewBox="0 0 64 76" fill="none">
-      <path d="M32,4 C30,12 14,42 4,72 C14,72 22,72 32,44 C32,30 32,16 32,4 Z" fill="#1B5E20" stroke="black" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M32,4 C34,12 50,42 60,72 C50,72 42,72 32,44 C32,30 32,16 32,4 Z" fill="#66BB6A" stroke="black" stroke-width="2" stroke-linejoin="round"/>
-      <line x1="32" y1="4" x2="32" y2="42" stroke="white" stroke-width="2"/>
-      <circle cx="32" cy="44" r="8" fill="black"/>
-      <circle cx="32" cy="44" r="6.5" fill="#1B5E20"/>
-      <circle cx="32" cy="44" r="3.5" fill="#66BB6A"/>
+    <svg class="nav-mark" viewBox="0 0 78 40" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,0 0,40 18,20" fill="#E7A64C"/>
+      <polygon points="30,0 30,40 48,20" fill="#FFFFFF" stroke="#1B5E20" stroke-width="2.5"/>
+      <polygon points="60,0 60,40 78,20" fill="#66BB6A"/>
     </svg>
     <span class="nav-wordmark">ASIYEN</span>
   </a>
@@ -872,10 +871,8 @@
   </ul>
 </nav>
 
-<!-- MAIN PAGE -->
 <div class="main-page" id="mainPage">
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
@@ -896,7 +893,7 @@
           <div class="phone-notch"></div>
           <div class="phone-screen">
             <div class="phone-header">
-              <div class="phone-greeting">Good day, Simele 👋</div>
+              <div class="phone-greeting">Good day 👋</div>
               <div class="phone-name">Customer Account</div>
               <div class="phone-balance-label">WALLET BALANCE</div>
               <div class="phone-balance">R 485.00</div>
@@ -943,7 +940,6 @@
         </div>
         <div class="sticker-card">
           <div class="sticker-qr">
-            <!-- Mini QR simulation -->
             <div class="qr-cell" style="background:#1B5E20;grid-column:1/3;grid-row:1/3;border-radius:2px;"></div>
             <div class="qr-cell" style="background:white;grid-column:2;grid-row:2;"></div>
             <div class="qr-cell" style="background:#1B5E20;"></div>
@@ -972,7 +968,6 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section id="how">
     <div class="section">
       <div class="section-tag">Simple by design</div>
@@ -1001,10 +996,9 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
   <section id="features" class="features-section">
     <div class="features-inner">
-      <div class="section-tag">Built for real life</div>
+      <div class="section-tag gold">Built for real life</div>
       <h2 class="section-title">Everything you need</h2>
       <p class="section-sub">Asiyen handles the full money cycle — top up, pay, send, withdraw — in one simple app.</p>
       <div class="features-grid">
@@ -1015,12 +1009,12 @@
             <p>New to Asiyen? Your very first wallet top-up carries zero service fees. We want to make getting started as easy as possible for every South African.</p>
             <div class="feature-pills">
               <span class="pill">No hidden fees</span>
-              <span class="pill">R10 flat fee thereafter</span>
+              <span class="pill gold">R10 flat fee thereafter</span>
               <span class="pill">Minimum R50</span>
             </div>
           </div>
           <div style="text-align:center;">
-            <div style="font-family:'DM Serif Display',serif; font-size:80px; color:rgba(102,187,106,0.3); line-height:1;">R0</div>
+            <div style="font-family:'DM Serif Display',serif; font-size:80px; color:rgba(231,166,76,0.4); line-height:1;">R0</div>
             <div style="font-size:14px; color:rgba(255,255,255,0.4); letter-spacing:2px;">FIRST DEPOSIT</div>
           </div>
         </div>
@@ -1029,7 +1023,7 @@
           <h3>P2P Transfers</h3>
           <p>Send money to any Asiyen user instantly via their phone number. No bank account needed — wallet to wallet in seconds.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card warm">
           <div class="feature-icon">🎟️</div>
           <h3>Voucher top-ups</h3>
           <p>No bank account? No problem. Buy an Asiyen voucher from a local agent with cash and redeem it in the app.</p>
@@ -1048,7 +1042,6 @@
     </div>
   </section>
 
-  <!-- FOR WHO -->
   <section id="who" class="who-section">
     <div class="section-tag">Built for you</div>
     <h2 class="section-title">For customers and merchants</h2>
@@ -1079,7 +1072,6 @@
     </div>
   </section>
 
-  <!-- DOWNLOAD -->
   <section id="download" class="download-section">
     <div class="download-inner">
       <h2>Ready to go <em>cashless?</em></h2>
@@ -1103,7 +1095,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-top">
@@ -1122,8 +1113,8 @@
         <div class="footer-links">
           <h4>Company</h4>
           <ul>
-            <li><a href="#">About Asiyen</a></li>
-            <li><a href="#">Become an Agent</a></li>
+            <li><a href="#how">About Asiyen</a></li>
+            <li><a href="mailto:admin@asiyen.com?subject=Becoming%20an%20Asiyen%20Agent">Become an Agent</a></li>
             <li><a href="mailto:admin@asiyen.com">Contact us</a></li>
           </ul>
         </div>
@@ -1131,8 +1122,8 @@
           <h4>Legal</h4>
           <ul>
             <li><a href="#" onclick="showPrivacy(); return false;">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">POPIA Compliance</a></li>
+            <li><a href="#" onclick="showTerms(); return false;">Terms &amp; Conditions</a></li>
+            <li><a href="#" onclick="showPrivacy(); return false;">POPIA Compliance</a></li>
           </ul>
         </div>
       </div>
@@ -1140,19 +1131,18 @@
         <div class="footer-copy">© 2026 Asiyen Enterprise (Pty) Ltd · East London, South Africa</div>
         <div class="footer-legal">
           <a href="#" onclick="showPrivacy(); return false;">Privacy Policy</a>
-          <a href="#">Terms</a>
+          <a href="#" onclick="showTerms(); return false;">Terms</a>
         </div>
       </div>
     </div>
   </footer>
 
-</div><!-- end main page -->
+</div>
 
-<!-- PRIVACY POLICY PAGE -->
 <div class="privacy-page" id="privacyPage">
   <a href="#" onclick="showMain(); return false;" style="display:inline-flex;align-items:center;gap:8px;color:var(--dark);text-decoration:none;font-weight:500;margin-bottom:40px;">← Back to Asiyen</a>
   <h1>Privacy Policy</h1>
-  <p class="privacy-date">Last updated: June 2026</p>
+  <p class="privacy-date">Last updated: July 2026</p>
 
   <p>Asiyen Enterprise (Pty) Ltd ("Asiyen", "we", "us") is committed to protecting your personal information in accordance with the Protection of Personal Information Act, 2013 (POPIA).</p>
 
@@ -1179,7 +1169,7 @@
   <h2>Sharing Your Information</h2>
   <p>We do not sell your personal information to third parties. We share data only with:</p>
   <ul>
-    <li>Payment processors (Peach Payments) — to process deposits and withdrawals</li>
+    <li>Payment processors — to process deposits, withdrawals and payouts</li>
     <li>SMS providers (MessageBird) — to deliver OTP verification codes</li>
   </ul>
 
@@ -1205,16 +1195,123 @@
   <strong>Location:</strong> East London, Eastern Cape, South Africa</p>
 </div>
 
+
+<!-- TERMS & CONDITIONS PAGE -->
+<div class="sub-page" id="termsPage">
+  <a href="#" onclick="showMain(); return false;" style="display:inline-flex;align-items:center;gap:8px;color:var(--dark);text-decoration:none;font-weight:500;margin-bottom:40px;">&larr; Back to Asiyen</a>
+  <h1>Terms &amp; Conditions</h1>
+  <p class="privacy-date">Last updated: August 2026</p>
+
+  <p>These terms govern your use of the Asiyen mobile application and related services operated by Asiyen Enterprise (Pty) Ltd ("Asiyen", "we", "us"), a company registered in the Republic of South Africa. By creating an account you agree to these terms.</p>
+
+  <h2>1. Who may use Asiyen</h2>
+  <ul>
+    <li>You must be at least 18 years old.</li>
+    <li>You must register using a South African mobile number registered in your own name (RICA).</li>
+    <li>You may hold only one account. Accounts are personal and may not be transferred.</li>
+    <li>You must provide accurate information and keep it up to date.</li>
+  </ul>
+
+  <h2>2. Account roles</h2>
+  <p>Asiyen accounts are one of three types:</p>
+  <ul>
+    <li><strong>Customer</strong> &mdash; loads funds and pays fares, sends money, and buys airtime or data.</li>
+    <li><strong>Merchant</strong> &mdash; receives fare payments through an assigned QR sticker and may withdraw earnings to a bank account.</li>
+    <li><strong>Agent</strong> &mdash; sells stickers and vouchers, activates merchants, and earns commission under a separate agent agreement.</li>
+  </ul>
+
+  <h2>3. Verification and limits</h2>
+  <p>Accounts begin with entry-level limits. To hold a balance above R1 000, deposit more than R2 000 in any 30-day period, or withdraw more than R1 000 at once, you must complete identity verification by submitting a valid South African ID or passport.</p>
+  <p>We may decline or reverse a verification, request further information, or apply lower limits where we are required to do so or where we reasonably suspect fraud or misuse. Verification decisions are reviewed by a person, and you may contact us to query an outcome.</p>
+
+  <h2>4. Your wallet balance</h2>
+  <p>Funds in your Asiyen wallet are held in a separate account maintained for the benefit of users and are not used for our operating expenses. Your wallet balance is not a bank deposit, is not a savings or investment product, and does not earn interest.</p>
+  <p>You are responsible for keeping your PIN and device secure. Notify us immediately if you believe your account has been accessed without your permission.</p>
+
+  <h2>5. Fees</h2>
+  <p>Fees are displayed in the app before you confirm any transaction. At present:</p>
+  <ul>
+    <li>Your first wallet top-up is free. Thereafter a top-up fee applies, shown before you confirm.</li>
+    <li>The minimum top-up is R50.</li>
+    <li>A flat fee applies to each withdrawal.</li>
+    <li>A fee is deducted when an Asiyen voucher is redeemed.</li>
+    <li>Transfers between Asiyen users may carry a fee depending on the account types involved.</li>
+  </ul>
+  <p>We may change our fees. Where we do, the current fee is always the one displayed in the app at the time you confirm a transaction.</p>
+
+  <h2>6. Paying a fare</h2>
+  <p>Scanning a merchant's QR sticker and confirming an amount authorises an immediate transfer from your wallet to that merchant. You are responsible for entering the correct amount. Because payment is immediate, a completed fare payment cannot be reversed by us unilaterally.</p>
+  <p>If you believe you were charged incorrectly, contact the merchant in the first instance and then raise it with us through the app.</p>
+
+  <h2>7. Withdrawals</h2>
+  <p>Withdrawals to a bank account are available to Merchant and Agent accounts only. Customer accounts cannot withdraw. You must withdraw to a bank account held in your own name. We may delay or decline a withdrawal where verification is incomplete or where we are required to investigate.</p>
+
+  <h2>8. Vouchers</h2>
+  <p>Asiyen vouchers are sold in cash by authorised agents and are redeemed in the app. A voucher expires 90 days after it is issued if it has not been redeemed, after which it has no value. Vouchers are not refundable for cash and may only be redeemed once.</p>
+  <p>If you are asked to pay more than a voucher's face value, report it in the app. We investigate such reports and may suspend the agent concerned.</p>
+
+  <h2>9. Airtime and data</h2>
+  <p>Airtime and data are supplied by third-party providers. Once a purchase is successfully delivered to the mobile number you specify, it cannot be reversed. You are responsible for entering the correct number.</p>
+
+  <h2>10. Stickers</h2>
+  <p>QR stickers remain identified to the merchant they are activated for. Stickers may not be transferred, copied, or reproduced. We may deactivate a sticker that is reported lost, damaged, misused, or associated with fraud; a deactivated sticker can no longer receive payments.</p>
+
+  <h2>11. Acceptable use</h2>
+  <p>You may not use Asiyen to launder money, finance illegal activity, evade tax, impersonate another person, or process transactions on behalf of an undisclosed third party. You may not attempt to interfere with, reverse-engineer, or gain unauthorised access to the service.</p>
+
+  <h2>12. Suspension and closure</h2>
+  <p>We may suspend or close an account where these terms are breached, where we are legally required to, or where we reasonably suspect fraud. Where an account is closed, any remaining verified balance belonging to you will be returned to you, subject to any legal obligation preventing this.</p>
+  <p>You may close your account at any time by contacting us, after withdrawing or spending your remaining balance.</p>
+
+  <h2>13. Availability</h2>
+  <p>We aim to keep Asiyen available at all times but do not guarantee uninterrupted service. Deposits, withdrawals, and airtime purchases depend on banks, payment providers, and network operators outside our control.</p>
+
+  <h2>14. Liability</h2>
+  <p>Nothing in these terms limits liability that cannot lawfully be limited, including under the Consumer Protection Act. Subject to that, we are not liable for indirect or consequential loss, or for loss arising from your failure to keep your PIN or device secure, or from your entering incorrect payment details.</p>
+
+  <h2>15. Changes to these terms</h2>
+  <p>We may update these terms. Material changes will be communicated in the app or by SMS before they take effect. Continuing to use Asiyen after that constitutes acceptance.</p>
+
+  <h2>16. Governing law and disputes</h2>
+  <p>These terms are governed by the laws of the Republic of South Africa. We ask that you raise any complaint with us first at admin@asiyen.com so that we can resolve it directly.</p>
+
+  <h2>17. Contact</h2>
+  <p><strong>Email:</strong> admin@asiyen.com<br/>
+  <strong>Company:</strong> Asiyen Enterprise (Pty) Ltd<br/>
+  <strong>Location:</strong> East London, Eastern Cape, South Africa</p>
+
+  <h2>Delivery Policy</h2>
+  <p>Asiyen supplies both digital services and a physical item, and delivery differs between them.</p>
+  <ul>
+    <li><strong>Wallet top-ups</strong> are credited to your wallet as soon as payment is confirmed by our payment provider, normally within minutes. Where a payment is confirmed but your wallet is not credited, contact us and we will resolve it.</li>
+    <li><strong>Fare payments and transfers</strong> between Asiyen users are delivered immediately on confirmation.</li>
+    <li><strong>Airtime and data</strong> are delivered directly to the mobile number specified, normally within minutes of purchase.</li>
+    <li><strong>Voucher redemptions</strong> credit your wallet immediately on successful redemption.</li>
+    <li><strong>QR stickers</strong> are physical items sold and handed over in person by an authorised Asiyen agent at the point of sale. We do not courier or post stickers. A sticker becomes usable once the agent has activated it against the merchant's account.</li>
+    <li><strong>Withdrawals</strong> are paid to your nominated bank account. Instant methods normally arrive within minutes; other methods may take longer depending on your bank.</li>
+  </ul>
+  <p>There are no delivery charges for digital services. The price of a sticker is the price quoted by the agent at the point of sale.</p>
+</div>
+
 <script>
-  function showPrivacy() {
+  const SUB_PAGES = ['privacyPage', 'termsPage'];
+
+  function showSubPage(id) {
     document.getElementById('mainPage').classList.add('hidden');
-    document.getElementById('privacyPage').classList.add('active');
+    SUB_PAGES.forEach(p => {
+      document.getElementById(p).classList.toggle('active', p === id);
+    });
     window.scrollTo(0, 0);
   }
 
+  function showPrivacy() { showSubPage('privacyPage'); }
+  function showTerms() { showSubPage('termsPage'); }
+
   function showMain() {
     document.getElementById('mainPage').classList.remove('hidden');
-    document.getElementById('privacyPage').classList.remove('active');
+    SUB_PAGES.forEach(p => {
+      document.getElementById(p).classList.remove('active');
+    });
     window.scrollTo(0, 0);
   }
 </script>
