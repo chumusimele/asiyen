@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asiyen - Returning to the app</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1B5E20;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .card {
+      max-width: 360px;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+    p {
+      color: #c8e6c9;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .spinner {
+      margin: 24px auto;
+      width: 36px;
+      height: 36px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .note {
+      margin-top: 32px;
+      font-size: 13px;
+      color: #a5d6a7;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>ASIYEN</h1>
+    <p id="status-text">Returning you to the app...</p>
+    <div class="spinner" id="spinner"></div>
+    <p id="fallback-text" style="display:none;">
+      Please open the Asiyen app to see your wallet.
+    </p>
+  </div>
+
+  <script>
+    // This page is only a bridge back into the app. It deliberately does NOT
+    // tell the user their deposit succeeded — that is decided server-side by
+    // the Ozow notification, and the app confirms it against the wallet. A
+    // page reached by redirect can't prove money moved, and saying otherwise
+    // here would be a promise we can't keep.
+    var params = new URLSearchParams(window.location.search);
+    var status = params.get('status') || 'error';
+
+    var messages = {
+      success: 'Payment submitted. Returning you to the app to confirm...',
+      cancelled: 'Payment cancelled. Returning you to the app...',
+      error: 'Payment was not completed. Returning you to the app...'
+    };
+    document.getElementById('status-text').textContent =
+      messages[status] || messages.error;
+
+    window.location.href = 'asiyen://deposit?status=' + encodeURIComponent(status);
+
+    setTimeout(function () {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('fallback-text').style.display = 'block';
+    }, 1500);
+  </script>
+</body>
+</html>
