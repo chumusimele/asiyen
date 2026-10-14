@@ -38,9 +38,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      /* Charcoal (14 Oct) so the mark keeps the sticker's own colours:
+         light green, gold and white all read on it. */
+      background: #2E3430;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav-logo {
@@ -54,10 +55,10 @@
        proportions in units of cap height x100: stroke 26.1, chevron 123.6
        high, arm 57.7, step 74.2, gap 57; light green, gold, white; bold,
        no letter spacing. The same numbers as the app's AsiyenWordmark
-       (lib/widgets/asiyen_wordmark.dart): change all three together. On the
-       white nav it sits on the sticker's dark green. */
+       (lib/widgets/asiyen_wordmark.dart): change all three together. Drawn
+       straight onto the charcoal nav, large. */
     .nav-mark {
-      height: 44px;
+      height: 52px;
       width: auto;
       display: block;
     }
@@ -77,18 +78,18 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--muted);
+      color: #D6DDD7;
       font-size: 14px;
       font-weight: 500;
       letter-spacing: 0.5px;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--dark); }
+    .nav-links a:hover { color: var(--white); }
 
     .nav-cta {
-      background: var(--dark);
-      color: var(--white) !important;
+      background: var(--gold);
+      color: var(--dark) !important;
       padding: 10px 22px;
       border-radius: 100px;
       font-weight: 500 !important;
@@ -801,7 +802,7 @@
 
     .privacy-page, .sub-page {
       display: none;
-      padding: 120px 40px 80px;
+      padding: 140px 40px 80px;
       max-width: 760px;
       margin: 0 auto;
     }
@@ -841,6 +842,7 @@
 
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
+      .nav-mark { height: 40px; }
       .nav-links { display: none; }
       .hero { padding: 100px 20px 60px; }
       .hero-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -886,8 +888,7 @@
 
 <nav>
   <a href="#" class="nav-logo" onclick="showMain()" aria-label="Asiyen home">
-    <svg class="nav-mark" viewBox="-50 -60 920 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Asiyen">
-      <rect x="-50" y="-60" width="920" height="270" rx="56" fill="#1B5E20"/>
+    <svg class="nav-mark" viewBox="0 -25 820 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Asiyen">
       <use href="#asiyen-mark" x="0" y="-25" width="820" height="150"/>
     </svg>
   </a>
