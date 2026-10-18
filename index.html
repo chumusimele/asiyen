@@ -887,7 +887,7 @@
 </svg>
 
 <nav>
-  <a href="#" class="nav-logo" onclick="showMain()" aria-label="Asiyen home">
+  <a href="#" class="nav-logo" aria-label="Asiyen home">
     <svg class="nav-mark" viewBox="0 -25 820 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Asiyen">
       <use href="#asiyen-mark" x="0" y="-25" width="820" height="150"/>
     </svg>
@@ -896,7 +896,7 @@
     <li><a href="#how">How it works</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#who">For you</a></li>
-    <li><a href="#" onclick="showOrder(); return false;">Order Stickers</a></li>
+    <li><a href="#order">Order Stickers</a></li>
     <li><a href="#download" class="nav-cta">Download</a></li>
   </ul>
 </nav>
@@ -1107,20 +1107,15 @@
       <h2>Ready to go <em>cashless?</em></h2>
       <p>Download Asiyen on Android and join the growing community of cashless commuters in East London.</p>
       <div class="store-buttons">
-        <a href="#" class="store-btn">
+        <!-- Not a link until the Play listing is live. There is no
+             iPhone app. -->
+        <div class="store-btn" aria-disabled="true" style="cursor:default;">
           <span class="store-btn-icon">▶</span>
           <span class="store-btn-text">
-            <span class="store-btn-small">GET IT ON</span>
+            <span class="store-btn-small">COMING SOON TO</span>
             <span class="store-btn-name">Google Play</span>
           </span>
-        </a>
-        <a href="#" class="store-btn">
-          <span class="store-btn-icon"></span>
-          <span class="store-btn-text">
-            <span class="store-btn-small">DOWNLOAD ON THE</span>
-            <span class="store-btn-name">App Store</span>
-          </span>
-        </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1139,7 +1134,7 @@
           <ul>
             <li><a href="#how">How it works</a></li>
             <li><a href="#features">Features</a></li>
-            <li><a href="#" onclick="showOrder(); return false;">Order Stickers by Mail</a></li>
+            <li><a href="#order">Order Stickers by Mail</a></li>
             <li><a href="#download">Download</a></li>
           </ul>
         </div>
@@ -1154,17 +1149,17 @@
         <div class="footer-links">
           <h4>Legal</h4>
           <ul>
-            <li><a href="#" onclick="showPrivacy(); return false;">Privacy Policy</a></li>
-            <li><a href="#" onclick="showTerms(); return false;">Terms &amp; Conditions</a></li>
-            <li><a href="#" onclick="showPrivacy(); return false;">POPIA Compliance</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms &amp; Conditions</a></li>
+            <li><a href="/privacy/#your-rights">POPIA Compliance</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="footer-copy">© 2026 Asiyen Enterprise (Pty) Ltd · Buffalo City Metropolitan, Eastern Cape, South Africa</div>
         <div class="footer-legal">
-          <a href="#" onclick="showPrivacy(); return false;">Privacy Policy</a>
-          <a href="#" onclick="showTerms(); return false;">Terms</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms</a>
         </div>
       </div>
     </div>
@@ -1172,259 +1167,13 @@
 
 </div>
 
-<div class="privacy-page" id="privacyPage">
-  <a href="#" onclick="showMain(); return false;" style="display:inline-flex;align-items:center;gap:8px;color:var(--dark);text-decoration:none;font-weight:500;margin-bottom:40px;">← Back to Asiyen</a>
-  <h1>Privacy Policy</h1>
-  <p class="privacy-date">Last updated: October 2026</p>
-
-  <p>Asiyen Enterprise (Pty) Ltd ("Asiyen", "we", "us") is committed to protecting your personal information in accordance with the Protection of Personal Information Act, 2013 (POPIA).</p>
-
-  <p>This policy explains what information we collect, why we collect it, who we share it with, and what rights you have. It covers the Asiyen mobile application and this website.</p>
-
-  <h2>Information We Collect</h2>
-
-  <p><strong>When you open an account</strong></p>
-  <ul>
-    <li>Your mobile number — used to create your account and to verify you by one-time password (OTP)</li>
-    <li>Your name and date of birth</li>
-    <li>The display name you choose. Other Asiyen users see this name, followed by the first letter of your surname (for example &ldquo;Bra T · M.&rdquo;), instead of your full name.</li>
-    <li>Device information and the internet (IP) address you connect from — used for security and fraud prevention, and shown to you in your account's security activity</li>
-  </ul>
-
-  <p><strong>When you verify your identity</strong></p>
-  <p>Verification is required before you can top up past R1 000 or receive transfers past R1 500, deposit more than R2 000 in any 30-day period, or withdraw more than R1 000 at once. To verify you, we collect:</p>
-  <ul>
-    <li>Your identity document type and number (South African ID or passport)</li>
-    <li>A photograph of your identity document</li>
-    <li>A photograph of yourself, to confirm the document belongs to you</li>
-  </ul>
-  <p>Once you are verified, we send your identity number to our payment provider, Ozow, each time you top up your wallet. Ozow uses it to confirm that the bank account paying in belongs to you. If you are not verified, we do not send it.</p>
-
-  <p><strong>When you are paid out (Merchant and Agent accounts only)</strong></p>
-  <ul>
-    <li>Your bank, your branch code, and your bank account number</li>
-  </ul>
-  <p>Customer accounts cannot withdraw to a bank account, and we do not collect banking details from them, except to return your balance when you close your account (see below). How we handle these details is set out separately below.</p>
-
-  <p><strong>Withdrawing money as a Customer</strong></p>
-  <p>Withdrawals to a bank account are available to Merchant and Agent accounts only. A Customer account can spend its wallet balance on fares, transfers, vouchers, airtime and data, but cannot pay it out to a bank.</p>
-  <p>This does not mean your money is locked in. If you decide to close your Customer account while there is still money in your wallet, contact us at <strong>admin@asiyen.com</strong> and we will return the remaining balance to you. We will pay it into a bank account in your own name within 14 days after we have received your request, completed identity verification, and confirmed your bank details. Your wallet balance belongs to you.</p>
-
-  <p><strong>As you use Asiyen</strong></p>
-  <ul>
-    <li>Your transaction history — payments, top-ups, withdrawals, transfers, voucher redemptions and airtime purchases</li>
-    <li>The mobile number you send airtime or data to, which may belong to someone else</li>
-    <li>Reports you make to us, including payment disputes and complaints about an agent</li>
-  </ul>
-
-  <p><strong>If you order stickers by post</strong></p>
-  <ul>
-    <li>Your shipping address</li>
-    <li>The proof of payment you upload</li>
-  </ul>
-
-  <h2>Why We Collect It</h2>
-  <ul>
-    <li>To create and operate your wallet, and to carry out the transactions you instruct — we need this information to provide the service you have asked for</li>
-    <li>To verify your identity, and to meet our obligations under South African financial and anti-money-laundering law</li>
-    <li>To pay withdrawals into your bank account</li>
-    <li>To detect, investigate and prevent fraud and misuse</li>
-    <li>To provide customer support and resolve disputes</li>
-  </ul>
-  <p>We do not use your information for advertising, and we do not sell it.</p>
-
-  <h2>Your Banking Details</h2>
-  <p>We treat banking details as narrowly as we can while still being able to pay you.</p>
-  <ul>
-    <li>We store your full bank account number only in encrypted form. The encryption key is held separately from our database, so the stored number cannot be read from the database alone. It is decrypted only at the moment a payout is sent to our payment provider.</li>
-    <li>Your full account number is encrypted before it leaves our systems and is passed to our payment provider solely to make the payment. Each payout uses its own encryption key.</li>
-    <li>Your banking details cannot be changed directly from the app in the way ordinary profile information can. Changes go through a controlled process, so that someone who gains access to your device cannot quietly redirect your money to another account.</li>
-    <li>You may withdraw only to a bank account held in your own name.</li>
-  </ul>
-
-  <h2>Your Identity Documents</h2>
-  <p>Photographs of your identity document and of yourself are held in private storage. They are not published, not shared for any purpose other than verifying you, and not accessible from a public link.</p>
-  <p>When a member of our staff reviews your verification, the system creates a temporary link that expires after a few minutes, and records who accessed your documents and when. That record cannot be edited or deleted.</p>
-
-  <h2>Who We Share Your Information With</h2>
-  <p>We do not sell your personal information. We share it only where it is necessary to provide the service:</p>
-  <ul>
-    <li><strong>Ozow</strong> — our payment provider, to process deposits into your wallet and to pay withdrawals into your bank account. If you are verified, this includes your identity number when you top up, as described above.</li>
-    <li><strong>SIMcloud</strong> — to deliver airtime and data to the mobile number you specify</li>
-    <li><strong>Bird (formerly MessageBird)</strong> — to send your one-time passwords and security alerts by SMS, such as when your bank details or account settings change</li>
-    <li><strong>Resend</strong> — to send security alerts by email to Asiyen staff. These can include the name of an agent or user involved in an action we are monitoring.</li>
-    <li><strong>Supabase</strong> — our hosting provider, which stores our data on our behalf</li>
-    <li><strong>Paxi</strong> — the courier, where you have ordered stickers by post</li>
-  </ul>
-  <p>We may also disclose information where the law requires it, including to a court, a regulator, or a law-enforcement authority acting under lawful authority.</p>
-
-  <h2>Where Your Information Is Stored</h2>
-  <p>Our data is hosted on Supabase servers located in the European Union (Ireland). This means your personal information is transferred outside South Africa. The European Union has data-protection laws that provide a level of protection substantially similar to POPIA. Data is encrypted in transit using TLS.</p>
-
-  <h2>How Long We Keep It</h2>
-  <ul>
-    <li>Transaction records are kept for at least five years, as South African financial law requires.</li>
-    <li>Identity verification records are kept for at least five years after your account closes, for the same reason.</li>
-    <li>Banking details are kept while your account is open and you may still be paid out. You can ask us to remove them at any time; doing so means we cannot pay you until you provide them again.</li>
-    <li>Other account information is kept while your account is active.</li>
-  </ul>
-  <p>Where the law requires us to keep a record, we cannot delete it on request — but we will tell you when that is the case and why.</p>
-
-  <h2>Your Rights Under POPIA</h2>
-  <p>You have the right to:</p>
-  <ul>
-    <li>Ask what personal information we hold about you, and receive a copy of it</li>
-    <li>Ask us to correct information that is wrong or out of date</li>
-    <li>Ask us to delete your account and your information, subject to the retention periods above</li>
-    <li>Object to how we are processing your information</li>
-    <li>Complain to us, and to the Information Regulator</li>
-  </ul>
-  <p>To exercise any of these rights, email <strong>admin@asiyen.com</strong>. We will respond as soon as we reasonably can, and in any event within the period the law allows.</p>
-
-  <h2>Keeping Your Account Secure</h2>
-  <p>Your PIN is never stored in a readable form and is never checked on your phone — it is verified on our servers, so that a modified app cannot bypass it. You are responsible for keeping your PIN and your device secure. Tell us immediately if you believe someone has accessed your account.</p>
-  <p>You can choose to pay small taxi fares without entering your PIN, up to limits you set. It is off unless you turn it on. Turning it on or raising the limits needs your PIN, and we send you an SMS when you do. Sending money, withdrawals, airtime and changes to your bank details always need your PIN.</p>
-
-  <h2>If Something Goes Wrong</h2>
-  <p>If personal information under our control is accessed or acquired by an unauthorised person, we will notify you and the Information Regulator as POPIA requires.</p>
-
-  <h2>Children</h2>
-  <p>Asiyen is not for people under 18. We do not knowingly collect information from children. If we learn that we hold information about a child, we will delete it.</p>
-
-  <h2>Cookies</h2>
-  <p>The Asiyen mobile app does not use cookies. This website does not set analytics or advertising cookies.</p>
-
-  <h2>Complaints</h2>
-  <p>Please raise any concern with us first at <strong>admin@asiyen.com</strong> so we can put it right. If you are not satisfied, you may complain to the Information Regulator:</p>
-  <p>
-    <strong>The Information Regulator (South Africa)</strong><br/>
-    JD House, 27 Stiemens Street, Braamfontein, Johannesburg, 2001<br/>
-    Complaints: POPIAComplaints@inforegulator.org.za<br/>
-    General enquiries: enquiries@inforegulator.org.za<br/>
-    Telephone: 010 023 5200
-  </p>
-
-  <h2>Changes To This Policy</h2>
-  <p>We may update this policy. Where a change materially affects you, we will tell you in the app or by SMS before it takes effect. The date at the top of this page shows when it was last revised.</p>
-
-  <h2>Contact Us</h2>
-  <p>For privacy queries, or to exercise your rights under POPIA, contact our Information Officer:</p>
-  <p><strong>Email:</strong> admin@asiyen.com<br/>
-  <strong>Company:</strong> Asiyen Enterprise (Pty) Ltd<br/>
-  <strong>Location:</strong> Buffalo City Metropolitan, Eastern Cape, South Africa</p>
-</div>
-
-
-<!-- TERMS & CONDITIONS PAGE -->
-<div class="sub-page" id="termsPage">
-  <a href="#" onclick="showMain(); return false;" style="display:inline-flex;align-items:center;gap:8px;color:var(--dark);text-decoration:none;font-weight:500;margin-bottom:40px;">&larr; Back to Asiyen</a>
-  <h1>Terms &amp; Conditions</h1>
-  <p class="privacy-date">Last updated: October 2026</p>
-
-  <p>These terms govern your use of the Asiyen mobile application and related services operated by Asiyen Enterprise (Pty) Ltd ("Asiyen", "we", "us"), a company registered in the Republic of South Africa. By creating an account you agree to these terms.</p>
-
-  <h2>1. Who may use Asiyen</h2>
-  <ul>
-    <li>You must be at least 18 years old.</li>
-    <li>You must register using a South African mobile number registered in your own name (RICA).</li>
-    <li>You may hold only one account. Accounts are personal and may not be transferred.</li>
-    <li>You must provide accurate information and keep it up to date.</li>
-  </ul>
-
-  <h2>2. Account roles</h2>
-  <p>Asiyen accounts are one of three types:</p>
-  <ul>
-    <li><strong>Customer</strong> &mdash; loads funds and pays fares, sends money, and buys airtime or data.</li>
-    <li><strong>Merchant</strong> &mdash; receives fare payments through an assigned QR sticker and may withdraw earnings to a bank account.</li>
-    <li><strong>Agent</strong> &mdash; sells stickers and vouchers, activates merchants, and earns commission under a separate agent agreement.</li>
-  </ul>
-
-  <h2>3. Verification and limits</h2>
-  <p>Accounts begin with entry-level limits. You must complete identity verification before you can top up or redeem a voucher that would take your balance above R1 000, receive a transfer from another Asiyen user that would take your balance above R1 500, deposit more than R2 000 in any 30-day period, or withdraw more than R1 000 at once. Fare payments you receive are not limited in this way. You verify by submitting a valid South African ID or passport.</p>
-  <p>We may decline or reverse a verification, request further information, or apply lower limits where we are required to do so or where we reasonably suspect fraud or misuse. Verification decisions are reviewed by a person, and you may contact us to query an outcome.</p>
-
-  <h2>4. Your wallet balance</h2>
-  <p>Your wallet balance is money you have loaded, and it belongs to you. We record every rand of it against your account, and we do not use it for our operating expenses.</p>
-  <p>When you top up, your payment is collected by our payment processor, Ozow, and held in a balance maintained for Asiyen, from which withdrawals to merchants and agents are paid. We may also add our own money to that balance so that withdrawals can be paid promptly. Funds not needed for withdrawals are settled to a bank account in Asiyen's name that is used only for customer funds and is kept separate from the account we use to run the business. The fees we earn are moved to our operating account only once they have been earned.</p>
-  <p>Your wallet balance is not a bank deposit, is not a savings or investment product, does not earn interest, and is not covered by deposit insurance.</p>
-  <p>You are responsible for keeping your PIN and device secure. Notify us immediately if you believe your account has been accessed without your permission.</p>
-
-  <h2>5. Fees</h2>
-  <p>Fees are displayed in the app before you confirm any transaction. At present:</p>
-  <ul>
-    <li>Your first wallet top-up is free. Thereafter a top-up fee applies, shown before you confirm.</li>
-    <li>The minimum top-up is R50.</li>
-    <li>A flat fee applies to each withdrawal.</li>
-    <li>A fee is deducted when an Asiyen voucher is redeemed.</li>
-    <li>Sending money to another Asiyen user costs R3, paid by the sender on top of the amount sent, when either of you has a Customer account. Transfers between Merchant and Agent accounts carry a fee of between R3 and R12, shown before you confirm.</li>
-  </ul>
-  <p>We may change our fees. Where we do, the current fee is always the one displayed in the app at the time you confirm a transaction.</p>
-
-  <h2>6. Paying a fare and sending money</h2>
-  <p>Scanning a merchant's QR sticker and confirming an amount authorises an immediate transfer from your wallet to that merchant. You are responsible for entering the correct amount. Because payment is immediate, a completed fare payment cannot be reversed by us unilaterally.</p>
-  <p>If you believe you were charged incorrectly, contact the merchant in the first instance and then raise it with us through the app.</p>
-  <p>Sending money to another Asiyen user is also immediate. Before you confirm, the app shows the name of the person you are sending to: check that it is the person you mean. If you send money to the wrong person, we cannot reverse the transfer ourselves. Contact us at admin@asiyen.com as soon as possible and we will ask the recipient to return it, but we cannot guarantee that they will. The transfer fee is not refunded.</p>
-
-  <h2>7. Withdrawals</h2>
-  <p>Withdrawals to a bank account are available to Merchant and Agent accounts only. Customer accounts cannot withdraw. You must withdraw to a bank account held in your own name. We may delay or decline a withdrawal where verification is incomplete or where we are required to investigate.</p>
-  <p>Withdrawals are reviewed and sent as real-time payments, normally within an hour between 07:00 and 19:00, any day of the week. A withdrawal requested outside those hours is sent from 07:00. Your own bank may occasionally take longer to show it. Confirmation that a payout has completed can reach us up to 24 hours after your bank has already received the money, so a withdrawal still showing as pending in the app does not mean it has failed. If a payout cannot be completed, the amount and the withdrawal fee are returned to your wallet.</p>
-  <p>If you close a Customer account while money remains in your wallet, contact us at admin@asiyen.com and we will return the remaining balance to you. We will pay it into a bank account in your own name within 14 days after we have received your request, completed identity verification, and confirmed your bank details.</p>
-
-  <h2>8. Vouchers</h2>
-  <p>Asiyen vouchers are sold in cash by authorised agents and are redeemed in the app. A voucher is valid for three years from the date it is issued. Vouchers are not refundable for cash and may only be redeemed once.</p>
-  <p>If you are asked to pay more than a voucher's face value, report it in the app. We investigate such reports and may suspend the agent concerned.</p>
-
-  <h2>9. Airtime and data</h2>
-  <p>Airtime and data are supplied by third-party providers. Once a purchase is successfully delivered to the mobile number you specify, it cannot be reversed. You are responsible for entering the correct number.</p>
-
-  <h2>10. Stickers</h2>
-  <p>QR stickers remain identified to the merchant they are activated for. Stickers may not be transferred, copied, or reproduced. We may deactivate a sticker that is reported lost, damaged, misused, or associated with fraud; a deactivated sticker can no longer receive payments.</p>
-
-  <h2>11. Acceptable use</h2>
-  <p>You may not use Asiyen to launder money, finance illegal activity, evade tax, impersonate another person, or process transactions on behalf of an undisclosed third party. You may not attempt to interfere with, reverse-engineer, or gain unauthorised access to the service.</p>
-
-  <h2>12. Suspension and closure</h2>
-  <p>We may suspend or close an account where these terms are breached, where we are legally required to, or where we reasonably suspect fraud. Where an account is closed, any remaining balance belonging to you will be returned to you once we have verified your identity and the bank account it is to be paid into, subject to any legal obligation preventing this.</p>
-  <p>You may close your account at any time by contacting us.</p>
-
-  <h2>13. Availability</h2>
-  <p>We aim to keep Asiyen available at all times but do not guarantee uninterrupted service. Deposits, withdrawals, and airtime purchases depend on banks, payment providers, and network operators outside our control.</p>
-
-  <h2>14. Liability</h2>
-  <p>Nothing in these terms limits liability that cannot lawfully be limited, including under the Consumer Protection Act. Subject to that, we are not liable for indirect or consequential loss, or for loss arising from your failure to keep your PIN or device secure, or from your entering incorrect payment details.</p>
-
-  <h2>15. Changes to these terms</h2>
-  <p>We may update these terms. Material changes will be communicated in the app or by SMS before they take effect. Continuing to use Asiyen after that constitutes acceptance.</p>
-
-  <h2>16. Governing law and disputes</h2>
-  <p>These terms are governed by the laws of the Republic of South Africa. We ask that you raise any complaint with us first at admin@asiyen.com so that we can resolve it directly.</p>
-
-  <h2>17. Contact</h2>
-  <p><strong>Email:</strong> admin@asiyen.com<br/>
-  <strong>Company:</strong> Asiyen Enterprise (Pty) Ltd<br/>
-  <strong>Location:</strong> Buffalo City Metropolitan, Eastern Cape, South Africa</p>
-
-  <h2>Delivery Policy</h2>
-  <p>Asiyen supplies both digital services and a physical item, and delivery differs between them.</p>
-  <ul>
-    <li><strong>Wallet top-ups</strong> are credited to your wallet as soon as payment is confirmed by our payment provider, normally within minutes. Where a payment is confirmed but your wallet is not credited, contact us and we will resolve it.</li>
-    <li><strong>Fare payments and transfers</strong> between Asiyen users are delivered immediately on confirmation.</li>
-    <li><strong>Airtime and data</strong> are delivered directly to the mobile number specified, normally within minutes of purchase.</li>
-    <li><strong>Voucher redemptions</strong> credit your wallet immediately on successful redemption.</li>
-    <li><strong>QR stickers</strong> can be handed over in person by an authorised Asiyen agent at the point of sale, or couriered directly to you if ordered online. A sticker becomes usable once it has been activated against your Merchant account &mdash; this can happen either through an agent in person, or remotely once a courier order is confirmed received. An agent is not required to activate a sticker.</li>
-    <li><strong>Withdrawals</strong> are paid to your nominated bank account. Withdrawals are reviewed and sent as real-time payments, normally within an hour between 07:00 and 19:00, any day of the week. A withdrawal requested outside those hours is sent from 07:00. If a payout cannot be completed, the amount and the withdrawal fee are returned to your wallet.</li>
-  </ul>
-  <p>There are no delivery charges for digital services. The price of a sticker is the price quoted by the agent at the point of sale.</p>
-</div>
-
-
 <!-- ORDER STICKERS BY MAIL PAGE -->
 <div class="sub-page" id="orderPage">
-  <a href="#" onclick="showMain(); return false;" style="display:inline-flex;align-items:center;gap:8px;color:var(--dark);text-decoration:none;font-weight:500;margin-bottom:40px;">&larr; Back to Asiyen</a>
+  <a href="#" style="display:inline-flex;align-items:center;gap:8px;color:var(--dark);text-decoration:none;font-weight:500;margin-bottom:40px;">&larr; Back to Asiyen</a>
   <h1>Order Stickers by Mail</h1>
   <p class="privacy-date">For registered Merchants too far from an Asiyen agent to buy in person.</p>
 
-  <p>If there's no Asiyen agent near you yet, you can order your sticker directly and we'll post it to you. You'll need to already have a <strong>Merchant</strong> account in the Asiyen app &mdash; if you don't yet, <a href="#download" onclick="showMain();" style="color:var(--dark);">download the app</a> and register first, then come back here.</p>
+  <p>If there's no Asiyen agent near you yet, you can order your sticker directly and we'll post it to you. You'll need to already have a <strong>Merchant</strong> account in the Asiyen app &mdash; if you don't yet, <a href="#download" style="color:var(--dark);">download the app</a> and register first, then come back here.</p>
 
   <h2>How it works</h2>
   <ol style="padding-left: 20px; color: var(--muted); font-size: 16px; line-height: 1.8;">
@@ -1493,7 +1242,7 @@
   </button>
 
   <h2 style="margin-top:56px;">Note</h2>
-  <p style="font-size:14px;">By submitting, you confirm the shipping address and phone number are correct. Orders are reviewed manually and revenue is only recognised once your payment is confirmed &mdash; a rejected or unmatched payment will not be charged against your account. See our <a href="#" onclick="showTerms(); return false;" style="color:var(--dark);">Terms &amp; Conditions</a> for full details on stickers and delivery.</p>
+  <p style="font-size:14px;">By submitting, you confirm the shipping address and phone number are correct. Orders are reviewed manually and revenue is only recognised once your payment is confirmed &mdash; a rejected or unmatched payment will not be charged against your account. See our <a href="/terms/#delivery" style="color:var(--dark);">Terms &amp; Conditions</a> for full details on stickers and delivery.</p>
 </div>
 
 <script>
@@ -1595,18 +1344,19 @@
     }
   }
 
-  const SUB_PAGES = ['privacyPage', 'termsPage', 'orderPage'];
+  // The privacy policy and terms moved to /privacy/ and /terms/ (18 Oct)
+  // so each has its own address. Only the order form is still a section of
+  // this page, opened by #order so the link works from anywhere.
+  const SUB_PAGES = ['orderPage'];
 
   function showSubPage(id) {
     document.getElementById('mainPage').classList.add('hidden');
     SUB_PAGES.forEach(p => {
       document.getElementById(p).classList.toggle('active', p === id);
     });
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
-  function showPrivacy() { showSubPage('privacyPage'); }
-  function showTerms() { showSubPage('termsPage'); }
   function showOrder() { showSubPage('orderPage'); }
 
   function showMain() {
@@ -1614,8 +1364,26 @@
     SUB_PAGES.forEach(p => {
       document.getElementById(p).classList.remove('active');
     });
-    window.scrollTo(0, 0);
   }
+
+  // #order opens the order form; any other hash shows the home page and,
+  // when coming back from the form, goes to that section (or the top). A
+  // plain section link on the home page is left to the browser.
+  function route() {
+    if (location.hash === '#order') { showOrder(); return; }
+    const fromForm = document.getElementById('mainPage').classList.contains('hidden');
+    showMain();
+    if (!fromForm) return;
+    const id = location.hash.slice(1);
+    const target = id && document.getElementById(id);
+    // After the browser's own (failed) jump to the then-hidden section.
+    setTimeout(() => {
+      if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
+      else window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 0);
+  }
+  window.addEventListener('hashchange', route);
+  route();
 </script>
 
 </body>
