@@ -508,6 +508,12 @@
       background: linear-gradient(135deg, rgba(231,166,76,0.05), white 60%);
     }
 
+    /* A full-width white card (22 Oct: the transfer-fee card), so the
+       two-column grid stays even. */
+    .feature-card.wide {
+      grid-column: span 2;
+    }
+
     .feature-card.large {
       grid-column: span 2;
       background: var(--dark);
@@ -852,6 +858,7 @@
       .features-section { padding: 60px 20px; }
       .features-grid { grid-template-columns: 1fr; }
       .feature-card.large { grid-column: span 1; grid-template-columns: 1fr; }
+      .feature-card.wide { grid-column: span 1; }
       .who-section { padding: 60px 20px; }
       .who-grid { grid-template-columns: 1fr; }
       .download-section { padding: 60px 20px; }
@@ -1047,6 +1054,17 @@
             <div style="font-family:'DM Serif Display',serif; font-size:80px; color:rgba(231,166,76,0.4); line-height:1;">R0</div>
             <div style="font-size:14px; color:rgba(255,255,255,0.4); letter-spacing:2px;">FIRST DEPOSIT</div>
           </div>
+        </div>
+        <!-- Matches calculate_p2p_fee(): the R3-R12 tier follows
+             platform_settings.taxi_payment_ratio, Asiyen-wide, not per user.
+             That ratio counts every pay_fare payment to any Merchant (taxi or
+             vendor; the type is named taxi_payment). Change the function,
+             T&Cs section 5, this card, the app's Send screen fee lines and
+             the dashboard's feeTier() together. -->
+        <div class="feature-card wide">
+          <div class="feature-icon">🛒</div>
+          <h3>Fees that reward everyday payments</h3>
+          <p>Sending money to or from a Customer is always R3. Transfers between Merchant and Agent accounts cost R3 to R12, depending on how Asiyen is used as a whole: while most payments on Asiyen are scan-to-pay purchases at Merchants, the fee stays at R3, and it rises only if transfers start to outweigh payments. You'll always see the exact fee before you confirm.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">💸</div>
